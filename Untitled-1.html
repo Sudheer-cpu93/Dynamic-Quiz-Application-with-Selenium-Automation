@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Quiz Application</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Landing Page -->
+        <div id="landingPage" class="page active">
+            <div class="welcome-section">
+                <h1>Welcome to Dynamic Quiz</h1>
+                <p>Test your knowledge with our interactive quiz application</p>
+                
+                <div class="quiz-settings">
+                    <div class="setting-group">
+                        <label for="categorySelect">Select Category:</label>
+                        <select id="categorySelect">
+                            <option value="general">General Knowledge</option>
+                            <option value="science">Science</option>
+                            <option value="technology">Technology</option>
+                            <option value="history">History</option>
+                            <option value="geography">Geography</option>
+                        </select>
+                    </div>
+                    
+                    <div class="setting-group">
+                        <label for="difficultySelect">Select Difficulty:</label>
+                        <select id="difficultySelect">
+                            <option value="easy">Easy</option>
+                            <option value="medium">Medium</option>
+                            <option value="hard">Hard</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <button id="startQuizBtn" class="btn-primary">Start Quiz</button>
+            </div>
+        </div>
+
+        <!-- Quiz Page -->
+        <div id="quizPage" class="page">
+            <div class="quiz-header">
+                <div class="quiz-info">
+                    <span id="questionCounter">Question 1 of 10</span>
+                    <span id="categoryDisplay"></span>
+                    <span id="difficultyDisplay"></span>
+                </div>
+                <div class="timer-container">
+                    <div id="timerCircle" class="timer-circle">
+                        <span id="timerText">30</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="quiz-content">
+                <h2 id="questionText"></h2>
+                
+                <div id="optionsContainer" class="options-container">
+                    <!-- Options will be dynamically loaded here -->
+                </div>
+                
+                <div class="navigation-buttons">
+                    <button id="prevBtn" class="btn-secondary" disabled>Previous</button>
+                    <button id="clearBtn" class="btn-warning">Clear Answer</button>
+                    <button id="nextBtn" class="btn-secondary">Next</button>
+                    <button id="submitBtn" class="btn-primary" style="display: none;">Submit Quiz</button>
+                </div>
+            </div>
+            
+            <div class="question-navigation">
+                <h3>Question Navigator</h3>
+                <div id="questionNav" class="question-nav-grid">
+                    <!-- Question navigation buttons will be added here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Page -->
+        <div id="resultsPage" class="page">
+            <div class="results-header">
+                <h1>Quiz Results</h1>
+                <div class="score-summary">
+                    <div class="score-card">
+                        <h2 id="finalScore">0/10</h2>
+                        <p>Your Score</p>
+                    </div>
+                    <div class="score-card">
+                        <h2 id="percentageScore">0%</h2>
+                        <p>Percentage</p>
+                    </div>
+                    <div class="score-card">
+                        <h2 id="totalTime">0s</h2>
+                        <p>Total Time</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="results-analysis">
+                <div class="chart-container">
+                    <h3>Performance Analysis</h3>
+                    <canvas id="performanceChart"></canvas>
+                </div>
+                
+                <div class="chart-container">
+                    <h3>Time Spent Per Question</h3>
+                    <canvas id="timeChart"></canvas>
+                </div>
+            </div>
+            
+            <div class="detailed-results">
+                <h3>Detailed Question Review</h3>
+                <div id="questionReview"></div>
+            </div>
+            
+            <div class="results-buttons">
+                <button id="retakeBtn" class="btn-primary">Retake Quiz</button>
+                <button id="homeBtn" class="btn-secondary">Home</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="quizData.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
